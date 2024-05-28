@@ -3,7 +3,7 @@ import { footerLinks } from "../lib/constants"
 
 const AuthFooter = () => {
   return (
-    <div className="w-screen bg-white py-3 px-16 flex justify-between">
+    <div className="w-screen bg-white lg:py-3 md:py-1 lg:px-16 md:px-12 flex justify-between">
         {footerLinks.map((link) => (
             <Link to={link.path} className="text-gray-600 text-xs">{link.label}</Link>
         ))}
