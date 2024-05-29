@@ -1,6 +1,5 @@
 import { Button } from '@nextui-org/react';
 
-
 interface ButtonProps {
 	/**
 	 * The type of the button. Can be 'button', 'submit', or 'reset'.
@@ -30,8 +29,7 @@ const ButtonNextUI = ({
 }: ButtonProps) => {
 	return (
 		<Button
-		size='lg'
-		
+			size='lg'
 			className={`flex items-center justify-center rounded-full ${variant}`}
 			onPress={() => console.log(type)}
 			startContent={
