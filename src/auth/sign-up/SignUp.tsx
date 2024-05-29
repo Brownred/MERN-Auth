@@ -2,10 +2,17 @@ import AuthLayout from "../AuthLayout"
 import ButtonNextUI from '../../components/button';
 import { Divider } from "@nextui-org/react";
 import SignUpModal from "./SignUpModal";
+import {useNavigate} from 'react-router-dom';
 
 
 
 const SignUp = () => {
+    const navigate = useNavigate();
+
+  const handleLoginRedirect = () => {
+    navigate('/login');
+  };
+  
   return (
     <AuthLayout>
     <div className="">
@@ -28,7 +35,7 @@ const SignUp = () => {
                     <p className="text-sm max-w-[350px]  lg: mb-10">By signing up, you agree to the <u>Terms of service</u> and <u>privacy policy</u>, including <u>cookie use.</u></p>
 
                     <p>Already have an account?</p>
-                    <ButtonNextUI textVariant="" title="Log in" variant="bg-transparent min-w-[330px] border border-black"/>
+                    <ButtonNextUI action={handleLoginRedirect} textVariant="" title="Log in" variant="bg-transparent min-w-[330px] border border-black"/>
                 </div>
 
 

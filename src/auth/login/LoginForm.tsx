@@ -1,4 +1,4 @@
-import { Chip, Input } from "@nextui-org/react"
+import {  Input } from "@nextui-org/react"
 import ButtonNextUI from "../../components/button"
 import PasswordInput from "./inputs/passwordInput"
 import CheckBox from "./inputs/CheckBox"
