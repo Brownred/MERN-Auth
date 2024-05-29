@@ -1,9 +1,10 @@
 import RootLayout from "./RootLayout"
+import Hero from "./sections/hero/hero"
 
 const Home = () => {
   return (
     <RootLayout>
-        <div className="bg-slate-600">Home</div>
+      <Hero />
     </RootLayout>
     
   )

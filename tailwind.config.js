@@ -17,7 +17,7 @@ export default {
     },
     extend: {},
     backgroundImage: {
-      'signup': 'url("/public/signup-bg.jpg")'
+      'signup': 'url("/signup-bg.jpg")'
     },
     fontFamily: {
       poppins: ['poppins', ...defaultTheme.fontFamily.sans ]
