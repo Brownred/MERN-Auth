@@ -12,7 +12,7 @@ const Navbar = () => {
             <div className="xl:flex hidden">
                 <ul className="flex gap-[50px]">
                     {navLinks.map((link) => (
-                        <li><Link to={link.path}>{link.label}</Link></li>
+                        <li key={link.key}><Link to={link.path}>{link.label}</Link></li>
                     ))}
                 </ul>
             </div>
