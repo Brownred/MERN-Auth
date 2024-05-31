@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const schema = z.object({
   email: z.string().email(),
-  password: z.string().min(8, {message: "Password must be at least 2 characters."}),
+  password: z.string().min(8, {message: "Password must be at least 8 characters."}),
 })
 
 // Define the types for our form fields that we are gonna use for our form
