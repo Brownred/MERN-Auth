@@ -1,11 +1,12 @@
 import LeftSection from "./leftSection"
+import RightSection from "./rightSection"
 
 const Hero = () => {
   return (
-    <section>
-        <div className="flex">
+    <section className="bg-gradient-to-t from-[#FDC55E] to-white/0">
+        <div className="flex gap-[90px] py-16">
             <LeftSection />
-            {/* <RightSection /> */}
+            <RightSection />
         </div>
     </section>
   )

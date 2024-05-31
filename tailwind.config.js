@@ -15,7 +15,14 @@ export default {
         "2xl": "1400px",
       },
     },
-    extend: {},
+    
+    extend: {
+      colors: {
+      'orange': '#F54748',
+      'dark': '#191919',
+      'yellow': '#FDC55E'
+    },
+    },
     backgroundImage: {
       'signup': 'url("/signup-bg.jpg")'
     },
