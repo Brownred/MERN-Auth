@@ -7,9 +7,10 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import {z} from 'zod'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const schema =z.object({
-  email: z.string().email(),
+  email: z.string().email({message: 'email is not valid'}),
   password: z.string().min(8, {message: 'Password must be at least 8 characters.'})
 })
 
@@ -17,17 +18,24 @@ type formFields = z.infer<typeof schema>
 
 const LoginForm = () => {
 
-  const {register, handleSubmit, formState: {errors, isSubmitting}, setError} = useForm<formFields>({resolver: zodResolver(schema)});
+  const {register, handleSubmit, formState: {errors, isSubmitting}} = useForm<formFields>({resolver: zodResolver(schema)});
 
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const onSubmit: SubmitHandler<formFields> = (data) => {
+  const onSubmit: SubmitHandler<formFields> = async (data) => {
     try {
-      //Some, async action. send data to server. if ok redirect to home page
-      console.log(data)
+      const response = await fetch("http://localhost:4000/api/auth/login", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+
+      console.log(response)
     } catch (error) {
-      setError("email", {message: "email already exists"})
+      console.error(error)
     }
   }
   
@@ -81,8 +89,7 @@ const LoginForm = () => {
                     className="max-w-xs"
                   />
             
-                  <Button type="submit" isDisabled={isSubmitting} isLoading={isSubmitting} size='lg' className='flex items-center justify-center rounded-full bg-transparent min-w-[300px] border border-black'>
-                    <label>{isSubmitting ? '' : 'Log in'}</label>
+                  <Button type="submit" isDisabled={isSubmitting} isLoading={isSubmitting} size='lg' className='flex items-center justify-center rounded-full bg-transparent min-w-[300px] border border-black'>{isSubmitting ? 'Loading...' : 'Log in'}
                    </Button>
   
             
@@ -91,7 +98,7 @@ const LoginForm = () => {
                 <p className="text-sm font-medium">Need Help?</p>
             </div>
 
-            <p className="font-semibold text-sm ">Don't have an account? <u className="font-semibold">Sign up</u></p>
+            <p className="font-semibold text-sm ">Don't have an account? <Link to='/sign-up'><u className="font-semibold">Sign up</u></Link></p>
             </div>
             </form>
           </div>

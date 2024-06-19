@@ -17,7 +17,7 @@ const Navbar = () => {
                 </ul>
             </div>
 
-            <Link to="/sign-up"><div className='bg-[#F54748] hidden lg:flex py-[10px] justify-center min-h-[24px] min-w-[145px] rounded-full'><span className="font-normal"></span>Sign Up</div></Link>
+            <Link to="/sign-up"><div className='bg-[#F54748] hidden lg:flex py-[10px] justify-center min-h-[24px] min-w-[145px] rounded-full'><span className="font-normal">Sign Up</span></div></Link>
 
             <img src="/hambuger.svg" alt="hambuger menu icon" width={36} height={27} className="md:hidden block" />
         </div>
