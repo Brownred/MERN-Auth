@@ -30,8 +30,15 @@ export default {
       poppins: ['poppins', ...defaultTheme.fontFamily.sans ]
     },
     boxShadow: {},
-    // keyframes: {},
-    // animation: {},
+    keyframes: {
+      'fadeInOut': {
+        '0%, 100%': { opacity: '0' },
+        '10%, 90%': { opacity: '1' },
+      },
+    },
+    animation: {
+      'fadeInOut': 'fadeInOut 3s forwards',
+    },
   },
   darkMode: "class",
   plugins: [nextui() ]

@@ -7,6 +7,10 @@ import ButtonNextUI from "../../components/button.js";
 import {SubmitHandler, useForm} from 'react-hook-form'
 import {z} from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import Toast from "../../components/toast.js";
+
+
 
 const schema = z.object({
   email: z.string().email(),
@@ -21,14 +25,23 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>
 
 export default function SignUpModal() {
+
+  const [isToastVisible, setToastVisible] = useState(true);
+  const [toastMessage, setToastMessage] = useState('');
+
+  const showToast = (message: string) => {
+    setToastVisible(true)
+    setToastMessage('testing 123')
+    setTimeout(() => setToastVisible(false), 300000)
+  }
   
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const {register, handleSubmit, formState: {errors, isSubmitting}} = useForm<FormFields>( {resolver: zodResolver(schema)});
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      console.log(data)
-      const response = await fetch("http://localhost:4000/api/auth/signup", {
+      
+      const response = await fetch(`https://fantastic-acorn-wqvgggrv7pgc99j4-4000.app.github.dev/api/auth/signup`, {
         mode: "cors",
         method: 'POST',
         headers: {
@@ -36,7 +49,19 @@ export default function SignUpModal() {
         },
         body: JSON.stringify(data)
       })
-      console.log(response)
+
+      const responseData = await response.json()
+      
+
+      if (!response.ok) {
+        if (responseData.message.includes('email')) {
+          showToast('Email is already in use')
+        } else {
+          showToast('An error occured, please try again later')
+        }
+
+      }
+      
     } catch (error) {
       console.error(error)
     }
@@ -145,6 +170,7 @@ export default function SignUpModal() {
           )}
         </ModalContent>
       </Modal>
+      <Toast message={toastMessage} isVisible={isToastVisible} onClose={() => setToastVisible(false)} />
     </>
   );
 }

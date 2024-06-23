@@ -10,6 +10,7 @@ import router from './routes/routes'
 
 
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <NextUIProvider>
