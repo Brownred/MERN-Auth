@@ -4,7 +4,7 @@ interface ButtonProps {
 	/**
 	 * The type of the button. Can be 'button', 'submit', or 'reset'.
 	 */
-	type: 'button' | 'submit' | 'reset';
+	action?: () => void ;
 	/**
 	 * The title of the button.
 	 */
@@ -21,7 +21,7 @@ interface ButtonProps {
 }
 
 const ButtonNextUI = ({
-	type,
+	action,
 	title,
 	icon,
 	variant,
@@ -31,7 +31,7 @@ const ButtonNextUI = ({
 		<Button
 			size='lg'
 			className={`flex items-center justify-center rounded-full ${variant}`}
-			onPress={() => console.log(type)}
+			onPress={action}
 			startContent={
 				icon && <img src={icon} alt='icon' width={24} height={24} />
 			}

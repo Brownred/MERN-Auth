@@ -1,11 +1,15 @@
-import RootLayout from './RootLayout';
+
+import RootLayout from "./RootLayout"
+import Hero from "./sections/hero/hero"
 
 const Home = () => {
-	return (
-		<RootLayout>
-			<div className='bg-slate-600'>Home</div>
-		</RootLayout>
-	);
-};
+  return (
+    <RootLayout>
+      <Hero />
+    </RootLayout>
+    
+  )
+}
+
 
 export default Home;
