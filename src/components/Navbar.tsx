@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom"
-import { navLinks } from "../lib/constants"
+import { Link } from 'react-router-dom';
+import { navLinks } from '../lib/constants';
 
 const Navbar = () => {
-  return (
-    <nav className="my-5 font-poppins">
-        <div className="flex justify-between items-center">
-            <Link to="/">
-                <img src='/Logo.svg' alt="logo" loading="lazy"/>
-            </Link>
-
+	return (
+		<nav className='my-5 font-poppins'>
+			<div className='flex justify-between items-center'>
+				<Link to='/'>
+					<img src='/Logo.svg' alt='logo' loading='lazy' />
+				</Link>
             <div className="xl:flex hidden">
                 <ul className="flex gap-[50px]">
                     {navLinks.map((link) => (
@@ -25,4 +24,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

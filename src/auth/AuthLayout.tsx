@@ -1,5 +1,4 @@
-import AuthFooter from "../components/Authfooter";
-
+import AuthFooter from '../components/Authfooter';
 
 const AuthLayout = ({children}: Readonly<{children: React.ReactNode;}>) => {
   return (

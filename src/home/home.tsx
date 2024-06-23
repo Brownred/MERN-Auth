@@ -1,3 +1,4 @@
+
 import RootLayout from "./RootLayout"
 import Hero from "./sections/hero/hero"
 
@@ -10,4 +11,5 @@ const Home = () => {
   )
 }
 
-export default Home
+
+export default Home;
