@@ -7,7 +7,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 const SignUp = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLoginRedirect = () => {
     navigate('/login');
